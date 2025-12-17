@@ -1,0 +1,56 @@
+# ==================== 开发环境配置 ====================
+# 此配置文件用于本地开发环境
+
+spring:
+  # 数据源配置 - 开发环境使用 H2 内存数据库
+  datasource:
+    url: jdbc:h2:mem:myadmin;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # H2 控制台配置（仅开发环境）
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+
+  # JPA 配置 - 开发环境
+  jpa:
+    show-sql: true
+    hibernate:
+      # 开发环境自动更新表结构
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        # H2 数据库方言
+        dialect: org.hibernate.dialect.H2Dialect
+
+  # 开发工具配置
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+# 日志配置 - 开发环境
+logging:
+  level:
+    root: INFO
+    com.myadmin: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+# 服务器配置 - 开发环境
+server:
+  port: 8080
+
+# JWT 配置 - 开发环境（使用较短的过期时间便于测试）
+jwt:
+  secret: dev-jwt-secret-key-for-local-development-only
+  access-token-expiration: 3600
+  refresh-token-expiration: 86400

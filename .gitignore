@@ -1,0 +1,83 @@
+# ==================== Maven ====================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ==================== IDE ====================
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+# ==================== Java ====================
+*.class
+*.log
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# ==================== OS ====================
+### macOS ###
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+### Linux ###
+*~
+
+# ==================== Application ====================
+# 日志目录
+logs/
+*.log
+
+# 上传文件目录
+uploads/
+
+# 临时文件
+*.tmp
+*.bak
+*.swp
+
+# 配置文件（敏感信息）
+application-local.yml
+application-local.properties
+
+# H2 数据库文件
+*.db
+*.mv.db
+*.trace.db
+
+# ==================== TC 系统 ====================
+# 保留 .claude 目录（用于 TC 系统）
+!.claude/

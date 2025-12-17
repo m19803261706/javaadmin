@@ -1,0 +1,135 @@
+# ==================== MyAdmin 主配置文件 ====================
+# 企业级项目开发基础套件
+
+spring:
+  application:
+    name: myadmin
+
+  # 激活的环境配置（dev/prod）
+  profiles:
+    active: dev
+
+  # Jackson JSON 配置
+  jackson:
+    # 日期格式
+    date-format: yyyy-MM-dd HH:mm:ss
+    # 时区
+    time-zone: Asia/Shanghai
+    # 序列化配置
+    serialization:
+      # 格式化输出
+      indent-output: false
+      # 忽略空 Bean
+      fail-on-empty-beans: false
+    # 反序列化配置
+    deserialization:
+      # 忽略未知属性
+      fail-on-unknown-properties: false
+
+  # 数据源配置（在环境配置文件中覆盖）
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      # 连接池最小空闲连接数
+      minimum-idle: 5
+      # 连接池最大连接数
+      maximum-pool-size: 20
+      # 连接超时时间（毫秒）
+      connection-timeout: 30000
+      # 空闲连接超时时间（毫秒）
+      idle-timeout: 600000
+      # 连接最大存活时间（毫秒）
+      max-lifetime: 1800000
+
+  # JPA 配置
+  jpa:
+    # 显示 SQL
+    show-sql: false
+    # Hibernate 配置
+    hibernate:
+      # DDL 自动执行策略（none/validate/update/create/create-drop）
+      ddl-auto: none
+    # 数据库方言（在环境配置文件中覆盖）
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Spring Security 配置
+  security:
+    user:
+      # 默认用户（开发测试用，生产环境禁用）
+      name: admin
+      password: admin123
+
+# ==================== 服务器配置 ====================
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+# ==================== 日志配置 ====================
+logging:
+  level:
+    root: INFO
+    com.myadmin: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# ==================== Forest HTTP 客户端配置 ====================
+forest:
+  # 后端 HTTP 框架（okhttp3/httpclient）
+  backend: okhttp3
+  # 连接超时时间（毫秒）
+  connect-timeout: 10000
+  # 读取超时时间（毫秒）
+  read-timeout: 30000
+  # 最大连接数
+  max-connections: 500
+
+# ==================== JWT 配置 ====================
+jwt:
+  # 密钥（生产环境请使用更复杂的密钥）
+  secret: myadmin-jwt-secret-key-please-change-in-production-2024
+  # Access Token 有效期（秒）- 2小时
+  access-token-expiration: 7200
+  # Refresh Token 有效期（秒）- 7天
+  refresh-token-expiration: 604800
+  # Token 请求头名称
+  header: Authorization
+  # Token 前缀
+  prefix: "Bearer "
+
+# ==================== SpringDoc OpenAPI 配置 ====================
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+  # API 信息
+  info:
+    title: MyAdmin API
+    description: 企业级项目开发基础套件 API 文档
+    version: 1.0.0
+
+# ==================== 应用自定义配置 ====================
+myadmin:
+  # 是否开启验证码
+  captcha:
+    enabled: false
+  # 文件上传配置
+  upload:
+    # 上传路径
+    path: ./uploads
+    # 允许的文件类型
+    allowed-types: jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx
+    # 最大文件大小（MB）
+    max-size: 10

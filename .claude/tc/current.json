@@ -1,0 +1,81 @@
+{
+  "project_id": "javaadmin",
+  "feature": "基础套件",
+  "status": "planned",
+  "priority": "P0",
+  "mvp_scope": "complete",
+  "auth_method": "JWT Token",
+  "created_at": "2025-12-17",
+  "updated_at": "2025-12-17",
+  "prd_path": ".claude/tc/prds/基础套件/prd.md",
+  "context_path": ".claude/tc/context/基础套件/",
+  "github_repo": "m19803261706/javaadmin",
+  "epic": {
+    "number": 1,
+    "title": "🎯 [Epic] 基础套件 - 企业级项目开发基础套件",
+    "url": "https://github.com/m19803261706/javaadmin/issues/1"
+  },
+  "phases": [
+    {
+      "name": "Phase 1: 项目初始化与数据库设计",
+      "issues": [2, 3, 4],
+      "status": "ready"
+    },
+    {
+      "name": "Phase 2: 后端基础设施",
+      "issues": [5, 6, 7],
+      "status": "blocked"
+    },
+    {
+      "name": "Phase 3: 后端业务 API",
+      "issues": [8, 9, 10, 11, 12],
+      "status": "blocked"
+    },
+    {
+      "name": "Phase 4: 前端开发",
+      "issues": [14, 15, 16, 17, 18, 19, 20],
+      "status": "partial_ready"
+    },
+    {
+      "name": "Phase 5: 文档与测试",
+      "issues": [13, 21],
+      "status": "blocked"
+    }
+  ],
+  "issues": [
+    {"number": 2, "title": "项目初始化", "type": "backend", "status": "tc-ready", "phase": 1, "depends_on": []},
+    {"number": 3, "title": "数据库表设计", "type": "database", "status": "tc-ready", "phase": 1, "depends_on": []},
+    {"number": 4, "title": "数据库初始化脚本", "type": "database", "status": "tc-blocked", "phase": 1, "depends_on": [3]},
+    {"number": 5, "title": "统一返回 Result 封装", "type": "backend", "status": "tc-ready", "phase": 2, "depends_on": [2]},
+    {"number": 6, "title": "全局异常处理器", "type": "backend", "status": "tc-blocked", "phase": 2, "depends_on": [5]},
+    {"number": 7, "title": "JWT 认证授权实现", "type": "backend", "status": "tc-blocked", "phase": 2, "depends_on": [2, 6]},
+    {"number": 8, "title": "认证 API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
+    {"number": 9, "title": "用户管理 CRUD API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
+    {"number": 10, "title": "角色管理 CRUD API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
+    {"number": 11, "title": "菜单管理 CRUD API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
+    {"number": 12, "title": "权限校验注解", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7]},
+    {"number": 13, "title": "Swagger/OpenAPI 文档", "type": "docs", "status": "tc-blocked", "phase": 5, "depends_on": []},
+    {"number": 14, "title": "shadcn-admin 项目初始化", "type": "frontend", "status": "tc-ready", "phase": 4, "depends_on": []},
+    {"number": 15, "title": "登录/注册页面对接", "type": "frontend", "status": "tc-blocked", "phase": 4, "depends_on": [14, 8]},
+    {"number": 16, "title": "用户管理页面开发", "type": "frontend", "status": "tc-blocked", "phase": 4, "depends_on": [14, 9]},
+    {"number": 17, "title": "角色管理页面开发", "type": "frontend", "status": "tc-blocked", "phase": 4, "depends_on": [14, 10]},
+    {"number": 18, "title": "菜单管理页面开发", "type": "frontend", "status": "tc-blocked", "phase": 4, "depends_on": [14, 11]},
+    {"number": 19, "title": "权限指令与动态路由", "type": "frontend", "status": "tc-blocked", "phase": 4, "depends_on": [15]},
+    {"number": 20, "title": "个人中心页面", "type": "frontend", "status": "tc-blocked", "phase": 4, "depends_on": [15]},
+    {"number": 21, "title": "部署文档", "type": "docs", "status": "tc-blocked", "phase": 5, "depends_on": []}
+  ],
+  "execution_order": [2, 3, 14, 5, 4, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20, 13, 21],
+  "tech_stack": {
+    "backend": {
+      "framework": "Spring Boot 3.4.x/3.5.x",
+      "orm": "Spring Data JPA 3.x",
+      "database": ["MySQL 8.x", "DM8 (达梦)"],
+      "tools": ["Hutool 5.8.x", "Forest 1.8.x"],
+      "security": "Spring Security 6.x + JWT"
+    },
+    "frontend": {
+      "framework": "shadcn-admin",
+      "stack": ["React", "Vite", "TypeScript", "Tailwind CSS"]
+    }
+  }
+}
