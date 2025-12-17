@@ -20,7 +20,7 @@
       "name": "Phase 1: 项目初始化与数据库设计",
       "issues": [2, 3, 4],
       "status": "in_progress",
-      "completed": 1
+      "completed": 2
     },
     {
       "name": "Phase 2: 后端基础设施",
@@ -49,15 +49,15 @@
   ],
   "issues": [
     {"number": 2, "title": "项目初始化", "type": "backend", "status": "tc-done", "phase": 1, "depends_on": [], "completed_at": "2025-12-17", "commit": "20fc03d"},
-    {"number": 3, "title": "数据库表设计", "type": "database", "status": "tc-ready", "phase": 1, "depends_on": []},
-    {"number": 4, "title": "数据库初始化脚本", "type": "database", "status": "tc-blocked", "phase": 1, "depends_on": [3]},
+    {"number": 3, "title": "数据库表设计", "type": "database", "status": "tc-done", "phase": 1, "depends_on": [], "completed_at": "2025-12-17", "commit": "f9336fa"},
+    {"number": 4, "title": "数据库初始化脚本", "type": "database", "status": "tc-ready", "phase": 1, "depends_on": [3]},
     {"number": 5, "title": "统一返回 Result 封装", "type": "backend", "status": "tc-ready", "phase": 2, "depends_on": [2]},
     {"number": 6, "title": "全局异常处理器", "type": "backend", "status": "tc-blocked", "phase": 2, "depends_on": [5]},
     {"number": 7, "title": "JWT 认证授权实现", "type": "backend", "status": "tc-blocked", "phase": 2, "depends_on": [2, 6]},
-    {"number": 8, "title": "认证 API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
-    {"number": 9, "title": "用户管理 CRUD API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
-    {"number": 10, "title": "角色管理 CRUD API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
-    {"number": 11, "title": "菜单管理 CRUD API", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7, 3]},
+    {"number": 8, "title": "认证 API", "type": "backend", "status": "tc-ready", "phase": 3, "depends_on": [7, 3]},
+    {"number": 9, "title": "用户管理 CRUD API", "type": "backend", "status": "tc-ready", "phase": 3, "depends_on": [7, 3]},
+    {"number": 10, "title": "角色管理 CRUD API", "type": "backend", "status": "tc-ready", "phase": 3, "depends_on": [7, 3]},
+    {"number": 11, "title": "菜单管理 CRUD API", "type": "backend", "status": "tc-ready", "phase": 3, "depends_on": [7, 3]},
     {"number": 12, "title": "权限校验注解", "type": "backend", "status": "tc-blocked", "phase": 3, "depends_on": [7]},
     {"number": 13, "title": "Swagger/OpenAPI 文档", "type": "docs", "status": "tc-blocked", "phase": 5, "depends_on": []},
     {"number": 14, "title": "shadcn-admin 项目初始化", "type": "frontend", "status": "tc-ready", "phase": 4, "depends_on": []},
@@ -70,15 +70,15 @@
     {"number": 21, "title": "部署文档", "type": "docs", "status": "tc-blocked", "phase": 5, "depends_on": []}
   ],
   "execution_order": [2, 3, 14, 5, 4, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20, 13, 21],
-  "completed_issues": [2],
+  "completed_issues": [2, 3],
   "current_issue": null,
   "statistics": {
     "total": 20,
-    "completed": 1,
+    "completed": 2,
     "in_progress": 0,
-    "ready": 3,
-    "blocked": 16,
-    "progress_percent": 5
+    "ready": 6,
+    "blocked": 12,
+    "progress_percent": 10
   },
   "tech_stack": {
     "backend": {
