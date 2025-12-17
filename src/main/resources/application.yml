@@ -48,11 +48,25 @@ spring:
     # Hibernate 配置
     hibernate:
       # DDL 自动执行策略（none/validate/update/create/create-drop）
-      ddl-auto: none
+      # 使用 Flyway 管理数据库结构，所以设置为 validate
+      ddl-auto: validate
     # 数据库方言（在环境配置文件中覆盖）
     properties:
       hibernate:
         format_sql: true
+
+  # Flyway 数据库迁移配置
+  flyway:
+    # 是否启用 Flyway
+    enabled: true
+    # 迁移脚本位置
+    locations: classpath:db/migration
+    # 基线版本
+    baseline-version: 0
+    # 如果数据库非空是否执行基线
+    baseline-on-migrate: true
+    # 验证迁移脚本
+    validate-on-migrate: true
 
   # Spring Security 配置
   security:

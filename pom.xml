@@ -82,6 +82,18 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Flyway 数据库迁移工具 -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <!-- Flyway MySQL 支持 -->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+        </dependency>
+
         <!-- ==================== 工具库 ==================== -->
 
         <!-- Hutool 工具库 - 提供丰富的 Java 工具类 -->
@@ -190,6 +202,13 @@
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <encoding>UTF-8</encoding>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.30</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>

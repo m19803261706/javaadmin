@@ -21,13 +21,21 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      # 开发环境自动更新表结构
-      ddl-auto: update
+      # 开发环境使用 Flyway 迁移后验证
+      ddl-auto: validate
     properties:
       hibernate:
         format_sql: true
-        # H2 数据库方言
+        # H2 数据库方言（MySQL 兼容模式）
         dialect: org.hibernate.dialect.H2Dialect
+
+  # Flyway 配置 - 开发环境
+  flyway:
+    enabled: true
+    # H2 数据库使用专用迁移脚本
+    locations: classpath:db/migration-h2
+    # 清理和重建（仅开发环境）
+    clean-disabled: false
 
   # 开发工具配置
   devtools:
