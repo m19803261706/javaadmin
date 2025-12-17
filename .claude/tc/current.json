@@ -1,7 +1,7 @@
 {
   "project_id": "javaadmin",
   "feature": "基础套件",
-  "status": "planned",
+  "status": "in_progress",
   "priority": "P0",
   "mvp_scope": "complete",
   "auth_method": "JWT Token",
@@ -19,31 +19,36 @@
     {
       "name": "Phase 1: 项目初始化与数据库设计",
       "issues": [2, 3, 4],
-      "status": "ready"
+      "status": "in_progress",
+      "completed": 1
     },
     {
       "name": "Phase 2: 后端基础设施",
       "issues": [5, 6, 7],
-      "status": "blocked"
+      "status": "blocked",
+      "completed": 0
     },
     {
       "name": "Phase 3: 后端业务 API",
       "issues": [8, 9, 10, 11, 12],
-      "status": "blocked"
+      "status": "blocked",
+      "completed": 0
     },
     {
       "name": "Phase 4: 前端开发",
       "issues": [14, 15, 16, 17, 18, 19, 20],
-      "status": "partial_ready"
+      "status": "partial_ready",
+      "completed": 0
     },
     {
       "name": "Phase 5: 文档与测试",
       "issues": [13, 21],
-      "status": "blocked"
+      "status": "blocked",
+      "completed": 0
     }
   ],
   "issues": [
-    {"number": 2, "title": "项目初始化", "type": "backend", "status": "tc-ready", "phase": 1, "depends_on": []},
+    {"number": 2, "title": "项目初始化", "type": "backend", "status": "tc-done", "phase": 1, "depends_on": [], "completed_at": "2025-12-17", "commit": "20fc03d"},
     {"number": 3, "title": "数据库表设计", "type": "database", "status": "tc-ready", "phase": 1, "depends_on": []},
     {"number": 4, "title": "数据库初始化脚本", "type": "database", "status": "tc-blocked", "phase": 1, "depends_on": [3]},
     {"number": 5, "title": "统一返回 Result 封装", "type": "backend", "status": "tc-ready", "phase": 2, "depends_on": [2]},
@@ -65,6 +70,16 @@
     {"number": 21, "title": "部署文档", "type": "docs", "status": "tc-blocked", "phase": 5, "depends_on": []}
   ],
   "execution_order": [2, 3, 14, 5, 4, 6, 7, 8, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20, 13, 21],
+  "completed_issues": [2],
+  "current_issue": null,
+  "statistics": {
+    "total": 20,
+    "completed": 1,
+    "in_progress": 0,
+    "ready": 3,
+    "blocked": 16,
+    "progress_percent": 5
+  },
   "tech_stack": {
     "backend": {
       "framework": "Spring Boot 3.4.x/3.5.x",
